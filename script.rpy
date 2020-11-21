@@ -89,7 +89,7 @@ if player_name == "Chung Xuân":
     $ player_name ="Võ Văn Trung"
 if player_name == "chung xuan":
     $ player_name ="Võ Văn Trung"
-
+# alex mahan 2.0
 scene d2_1
 "Một ngày nọ..."
 "Mình tên là %(player_name)s"
