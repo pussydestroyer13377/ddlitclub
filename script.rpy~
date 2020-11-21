@@ -1,0 +1,123 @@
+define mc = ("Lâm Huy Hoàng")
+define banthan = ("Mình")
+define tien1 = "Tiến Võ"
+define tien2 = "TrọTiên"
+
+label start:
+play music "ho.mp3"
+scene truong
+with fade
+
+banthan "Một ngày nọ ở trường..."
+
+show hoang
+mc "Do thành tích học tập tốt trong môn văn của em"
+mc "Em đã được chọn vào câu lạc bộ Ngữ Văn của trường"
+mc "Em chắc chắn muốn vào không?"
+menu:
+ banthan "Có nên vào không?"
+ "Có":
+   jump gianhap
+
+ "Không":
+   jump kogianhap
+label gianhap:
+ "Ok, em nhớ 8g sáng ngày mai xuống phòng thư viện."
+ hide hoang
+ jump xuongthuviendau
+label kogianhap:
+ mc "Tại sao em lại không gia tham gia?"
+ mc "Thầy đã tạo điều kiện cho em vậy mà."
+ banthan "..."
+ hide hoang
+ jump xuongthuvien_kogianhap
+label xuongthuviendau:  # thư viện chính set1
+ "..."
+ hide truong
+ scene lib
+ show tien3
+ "Tiến" "Chào bạn!"
+ "Tiến" "Mình tên Võ Văn Tiến"
+ "Tiến" "Rất vui được gặp bạn"
+ show hatien
+ hide tien3
+ tien2  "Lô cc"
+ tien2  "Làm không đàng hoàng tao đuổi mày ra khỏi câu lạc bộ đó."
+ hide hatien
+ show tien3
+ tien1 "Xin lỗi bạn, TTiến hơi bị nóng tính"
+ menu:
+     banthan "Có nên ra khỏi không?"
+     "Nên":
+      jump banluan_thuyetphuc
+     "Không nên":
+       jump banluanfin1
+label xuongthuvien_kogianhap: #kogianhap xíu return qua xuongthuviendau
+ hide truong
+ scene black
+ with fade
+ "Ngày hôm sau ..."
+ "Ai có tên trong danh sách sau xuống phòng thư viện nha"
+ "..."
+ banthan "Mình?"
+ jump xuongthuviendau
+label banluan1:
+    "Ok vậy tụi mình bắt đầu nha"
+    jump banluanfin
+label banluan_thuyetphuc: # to banluan
+   hide hatien
+   tien1 "Mới buổi gặp đầu tiên mà đã vậy rồi"
+   tien1 "Tình nghĩa anh em chúng ta có chắc bền lâu"
+   tien1 "Thôi bạn tham gia với chúng mình luôn nha"
+   banthan "Ok, được thôi"
+   jump banluanfin
+label banluanfin:
+    "Vậy tụi mình sẽ bắt đầu với những hoạt động đầu tiên."
+    jump banluan_Taphop
+label banluanfin1: # fix cho menu
+    "Vậy tụi mình sẽ bắt đầu với những hoạt động đầu tiên."
+    jump banluan_Taphop
+label banluan_Taphop:
+    hide hatien
+    show tien3
+    tien1 "Ok.."
+    tien1 "Những hoạt động đầu tiên của clb là"
+    tien1 "Ermm..."
+    hide tien3
+    show hatien
+    tien2 "NHANH LÊN COI"
+    hide hatien
+    show tien3
+    tien1 "Viết thơ và làm văn"
+    banthan "Nghe chán vậy"
+menu:
+    banthan "Nên thêm những hoạt động khác không?"
+    "Nên":
+        banthan "Mình không hứng thú với mấy cái này lắm"
+        banthan "Các bạn nên thêm mấy cái khác"
+        tien1 "Ok"
+        jump banluan_Taphop2
+    "Không nên":
+       banthan  "Nghe được đó"
+       banthan  "Các bạn nên làm như vậy đi"
+       jump banluan_Taphop2
+label banluan_Taphop2:
+    hide lib
+    scene white
+    "Đột nhiên ai đó mở cửa ra"
+    show tuyet1
+    "Lưu Bạch Tuyết" "Chào các em"
+    "Lưu Bạch Tuyết" "Nhà trường thông báo các em phải chuẩn bị cho lễ hội trường sắp tới"
+    hide tuyet1
+    hide white
+    scene lib
+    show tien3
+    hatien "Thôi dẹp mẹ đi"
+    hatien "Mình mệt lắm rồi"
+    tien1 "Thôi tạm biệt"
+    jump chuongcuoi
+label chuongcuoi:
+    hide lib
+    show black
+    "CHƯƠNG CUỐI"
+return
